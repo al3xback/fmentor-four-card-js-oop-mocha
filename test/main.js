@@ -24,26 +24,26 @@ describe('DOM', () => {
 
 	it("should be able to create element via 'Component' class method", () => {
 		const component = new Component();
-		const paragraphEl = component.createElement('p', 'para', 'Lorem ipsum');
-		document.body.appendChild(paragraphEl);
+		const headingOneEl = component.createElement('h1', 'title', 'Lorem ipsum');
+		document.body.appendChild(headingOneEl);
 
-		const isParagraphElExist = !!document.querySelector('.para');
-		assert.ok(isParagraphElExist);
+		const isHeadingOneElElExist = !!document.querySelector('.title');
+		assert.ok(isHeadingOneElElExist);
 	});
 
 	it("should be able to return element attribute data via 'Component' class method", () => {
 		const component = new Component();
-		const srcData = component.createElementAttribute(
-			'src',
-			'./images/avatar.jpg'
+		const widthData = component.createElementAttribute(
+			'width',
+			640
 		);
 
-		const expectedSrcData = {
-			name: 'src',
-			value: './images/avatar.jpg',
+		const expectedWidthData = {
+			name: 'width',
+			value: 640
 		};
 
-		assert.deepEqual(srcData, expectedSrcData);
+		assert.deepEqual(widthData, expectedWidthData);
 	});
 
 	it("should be able to return card data via 'Card' class", () => {

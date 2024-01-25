@@ -24,7 +24,11 @@ describe('DOM', () => {
 
 	it("should be able to create element via 'Component' class method", () => {
 		const component = new Component();
-		const headingOneEl = component.createElement('h1', 'title', 'Lorem ipsum');
+		const headingOneEl = component.createElement(
+			'h1',
+			'title',
+			'Lorem ipsum'
+		);
 		document.body.appendChild(headingOneEl);
 
 		const isHeadingOneElElExist = !!document.querySelector('.title');
@@ -33,14 +37,11 @@ describe('DOM', () => {
 
 	it("should be able to return element attribute data via 'Component' class method", () => {
 		const component = new Component();
-		const widthData = component.createElementAttribute(
-			'width',
-			640
-		);
+		const widthData = component.createElementAttribute('width', 640);
 
 		const expectedWidthData = {
 			name: 'width',
-			value: 640
+			value: 640,
 		};
 
 		assert.deepEqual(widthData, expectedWidthData);
@@ -73,7 +74,7 @@ describe('DOM', () => {
 		const cardItemEl = cardItem.render();
 		document.body.appendChild(cardItemEl);
 
-		const isCardItemElExist = !!document.querySelector('.card__list-item');
+		const isCardItemElExist = !!document.querySelector('.card');
 		assert.ok(isCardItemElExist);
 	});
 
@@ -82,7 +83,7 @@ describe('DOM', () => {
 		const cardListEl = cardList.render();
 		document.body.appendChild(cardListEl);
 
-		const isCardListElExist = !!document.querySelector('.card__list');
+		const isCardListElExist = !!document.querySelector('.cards');
 		assert.ok(isCardListElExist);
 	});
 
